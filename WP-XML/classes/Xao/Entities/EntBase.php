@@ -19,7 +19,7 @@ extends Xao_Root
     /**
      * Used to store a list of obververs
      * 
-     * @var		array
+     * @var        array
      */
     private $_arrObservers = array();
     
@@ -357,7 +357,7 @@ extends Xao_Root
      * array passed to this function. The simplest is
      * 
      * @param   array   list of strings, or list of arrays.
-     * @param	bool	apply column list view as well
+     * @param    bool    apply column list view as well
      */
     public function SetTableColumns($arrCols,$blnApplyToView = true) {
         if(!$this->blnGoodToGo()) return;
@@ -422,8 +422,8 @@ extends Xao_Root
     /**
      * General purpose record accessor method
      * 
-     * @parma	string	SQL where clause
-     * @param	bool	whether or not to select distinct
+     * @parma    string    SQL where clause
+     * @param    bool    whether or not to select distinct
      */
     public function arrGetRecords(
         $strWhere = "",

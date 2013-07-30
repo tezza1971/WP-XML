@@ -17,8 +17,8 @@ extends Xao_Root
     * be called. It's a good idea to make sure this is only called as many times
     * as it needs to be (once).
     * 
-    * @param	uri	Where the configuration document is kept (it's name).
-    * @param	uri	If and where the cache file should be kept (recomended).
+    * @param    uri    Where the configuration document is kept (it's name).
+    * @param    uri    If and where the cache file should be kept (recomended).
     */
     public function __construct(
         $uriConfDoc,

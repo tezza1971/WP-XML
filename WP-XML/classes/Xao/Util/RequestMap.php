@@ -33,7 +33,7 @@ extends Xao_Root
      * and handler functions. See documentation on _ParseMapFile() for how to
      * format the XML alternative.
      * 
-     * @var	array
+     * @var    array
      */
     public $arrReqMap;
 
@@ -45,7 +45,7 @@ extends Xao_Root
      * temporary stack to build each request set as declared in the XML file.
      * There is no need for the developer to have anything to do with it.
      * 
-     * @var	array
+     * @var    array
      */
     private $_arrRequestSet;
 
@@ -60,7 +60,7 @@ extends Xao_Root
      * the XML parser and unserialize the contents of the cache file directly to
      * the main RequestMap array.
      * 
-     * @var	string
+     * @var    string
      */
     public $uriCacheFile = "RequestMap.tmp";
     
@@ -69,7 +69,7 @@ extends Xao_Root
      * 
      * This class variable is used internally by the _ParseMapFile() function.
      *
-     * @var	resource
+     * @var    resource
      */
     private $_resParser;
     

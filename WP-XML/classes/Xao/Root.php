@@ -82,7 +82,7 @@ class Xao_Root {
     /**
      * General purpose flag to use for testing status of a process
      * 
-     * @var	bool
+     * @var    bool
      */
     private $_blnGoodToGo = false;
     

@@ -19,22 +19,22 @@
 
 $arrConfig = array(
     defaultTemplate => "index.xsl",
-	getPostsArgs => array(
-		'posts_per_page'  => 5,
-		'offset'          => 0,
-		'category'        => '',
-		'orderby'         => 'post_date',
-		'order'           => 'DESC',
-		'include'         => '',
-		'exclude'         => '',
-		'meta_key'        => '',
-		'meta_value'      => '',
-		'post_type'       => 'post',
-		'post_mime_type'  => '',
-		'post_parent'     => '',
-		'post_status'     => 'publish',
-		'suppress_filters' => true
-	)
+    getPostsArgs => array(
+        'posts_per_page'  => 5,
+        'offset'          => 0,
+        'category'        => '',
+        'orderby'         => 'post_date',
+        'order'           => 'DESC',
+        'include'         => '',
+        'exclude'         => '',
+        'meta_key'        => '',
+        'meta_value'      => '',
+        'post_type'       => 'post',
+        'post_mime_type'  => '',
+        'post_parent'     => '',
+        'post_status'     => 'publish',
+        'suppress_filters' => true
+    )
 
 );
 

@@ -21,15 +21,20 @@ extends Xao_AppDoc
 {
     public $arrConfig;
     private $strNamespacePrefix = "wpx";
-    private $strNamespaceURI = "https://github.com/tezza1971/WP-XML/blob/master/wpx.xsd";
+    private $strNamespaceURI = "https://github.com/tezza1971/WP-XML/blob/master/wpx-1.0.xsd";
     public $uriContent;
     public $blnProcessed;
     public $uriXslTemplate;
     public $ndPosts;
 
     /**
-     * The FACADE constructor method initialises a few instance variables and
+     * Set up the main vars and initialise the XAO document
+     * 
+     * The WPX constructor accpets an array of 'application variables' and
      * then calls the parent constructor.
+     * 
+     * @param    array    Application vars statically defined in config.php
+     * @param    bool    whether or not to turn on debug mode
      */
     public function __construct($arrConfig, $blnDebug = false) {
         $this->blnDebug = $blnDebug;
@@ -39,24 +44,24 @@ extends Xao_AppDoc
     }
 
     public function GetPosts($arrArgs = '') {
-    	if(!is_array($arrArgs)) $arrArgs = $this->arrConfig['getPostsArgs'];
+        if(!is_array($arrArgs)) $arrArgs = $this->arrConfig['getPostsArgs'];
         $arrPosts = get_posts($arrArgs);
-    	if(!is_array($arrPosts)) return;
-    	if(!$this->ndPosts) $this->ndPosts = $this->ndAppendToRoot("posts");
+        if(!is_array($arrPosts)) return;
+        if(!$this->ndPosts) $this->ndPosts = $this->ndAppendToRoot("posts");
         $this->ndHashToAttribs($this->ndPosts, $arrArgs);
-    	foreach($arrPosts as $objPost) {
-    		$ndPost = $this->ndAppendToNode(
-    			$this->ndPosts,
-    			"post",
-    			"<![CDATA[".$objPost->post_content."]]>"
-    		);
-    		unset($objPost->post_content);
-    		$arrAttribs = (array)$objPost;
-    		$arrAttribs['post_id'] = $arrAttribs['ID'];
-    		unset($arrAttribs['ID']);
-    		$this->ndHashToAttribs($ndPost,$arrAttribs);
-    	}
-    	// if(is_array($arrPosts)) $this->ndPosts = $this->ndHashToXml($arrPosts);
+        foreach($arrPosts as $objPost) {
+            $ndPost = $this->ndAppendToNode(
+                $this->ndPosts,
+                "post",
+                "<![CDATA[".$objPost->post_content."]]>"
+            );
+            unset($objPost->post_content);
+            $arrAttribs = (array)$objPost;
+            $arrAttribs['post_id'] = $arrAttribs['ID'];
+            unset($arrAttribs['ID']);
+            $this->ndHashToAttribs($ndPost,$arrAttribs);
+        }
+        // if(is_array($arrPosts)) $this->ndPosts = $this->ndHashToXml($arrPosts);
     }
 
     /**
@@ -76,7 +81,7 @@ extends Xao_AppDoc
         $this->uriXslTemplate = $this->arrConfig["defaultTemplate"];
                                         // See if there is a specific one to
                                         // override the default one
-		// TODO.. implement some rules for finding alternative XSL templates
+        // TODO.. implement some rules for finding alternative XSL templates
                                         // return whatever is left
         return $this->uriXslTemplate;
     }
